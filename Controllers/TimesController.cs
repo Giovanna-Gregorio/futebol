@@ -34,6 +34,7 @@ namespace Fut.Controllers
             }
 
             var time = await _context.Time
+                .Include(t => t.Jogadores)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (time == null)
             {

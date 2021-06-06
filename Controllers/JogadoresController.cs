@@ -48,7 +48,7 @@ namespace Fut.Controllers
         // GET: Jogadores/Create
         public IActionResult Create()
         {
-            ViewData["TimeId"] = new SelectList(_context.Time, "Id", "Id");
+            ViewData["TimeId"] = new SelectList(_context.Time, "Id", "Nome");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace Fut.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TimeId"] = new SelectList(_context.Time, "Id", "Id", jogador.TimeId);
+            ViewData["TimeId"] = new SelectList(_context.Time, "Id", "Nome", jogador.TimeId);
             return View(jogador);
         }
 
@@ -82,7 +82,7 @@ namespace Fut.Controllers
             {
                 return NotFound();
             }
-            ViewData["TimeId"] = new SelectList(_context.Time, "Id", "Id", jogador.TimeId);
+            ViewData["TimeId"] = new SelectList(_context.Time, "Id", "Nome", jogador.TimeId);
             return View(jogador);
         }
 
@@ -118,7 +118,7 @@ namespace Fut.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["TimeId"] = new SelectList(_context.Time, "Id", "Id", jogador.TimeId);
+            ViewData["TimeId"] = new SelectList(_context.Time, "Id", "Nome", jogador.TimeId);
             return View(jogador);
         }
 
